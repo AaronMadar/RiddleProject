@@ -6,6 +6,10 @@ function App() {
     console.log("Welcome to the Riddle Challenge!\nThis app is designed to assess your mental performance and test your quick thinking. Enjoy!");
     const playername = readline.question(`What's your name ? : `)
     let p1 = new ALL.Player(playername) 
+    console.log(`Which Level do you want ? 
+        \nEASY PRESS 1  
+        \nMEDIUM PRESS 2  
+        \nHARD PRESS 3 `)
     
 
     for( let i = 0; i<ALL.Riddle.ridllearray.length && count <3  ;i++ ){
