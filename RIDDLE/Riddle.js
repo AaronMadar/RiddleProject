@@ -1,4 +1,6 @@
 import readline from 'readline-sync';
+import fs from "fs"
+
 
 export default class Riddle {    
     constructor(id,taskDescription,correctAnswer ){
@@ -7,10 +9,14 @@ export default class Riddle {
         this.correctAnswer = correctAnswer
         this.timeToAnswer ={begin:0, end:0}
         this.continuetoask = true
-        Riddle.ridllearray.push(this)
+        Riddle.riddlearray.push(this)
+        fs.appendFile("RIDDLE/riddle.txt", JSON.stringify(this) + "\n", (err) => {
+    if (err) throw err;
+});
+
     }
     
-    static ridllearray = []
+    static riddlearray = []
     
     Ask(count){
         while(this.continuetoask){
@@ -30,6 +36,10 @@ export default class Riddle {
         
     }
 }
+
+
+
+
 
   
 

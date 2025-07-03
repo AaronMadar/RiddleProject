@@ -1,4 +1,4 @@
-import  Riddle  from "../classes/Riddle.js";
+import  Riddle  from "./Riddle.js";
 
 export let r1 = new Riddle(1,"How much are 4 + 2  ?",6)
 export let r2 = new Riddle(2,"How much are 4 + 3  ?",7)
