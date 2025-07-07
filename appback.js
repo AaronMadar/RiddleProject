@@ -87,18 +87,18 @@ function launchGame(count,player){
 
 
 
-function createNewRiddle(){
+export function createNewRiddle(){
     console.log(" \n ~~~ ADD YOUR NEW RIDDLE ~~~\n")
-   let a = readline.question(`WRITE HERE THE TASK `)
-    let b = readline.question(`WRITE HERE THE ANSWER `)
+   let task = readline.question(`WRITE HERE THE TASK `)
+    let answer = readline.question(`WRITE HERE THE ANSWER `)
 
   let lastid = ALL.Riddle.riddlearray.slice(-1)[0].id;
   let id = lastid +1; 
-  let newriddle = new ALL.Riddle(id,a,b)
+  let newriddle = new ALL.Riddle(id,task,answer)
 
-  for(let el of ALL.Riddle.riddlearray){
-    console.log(el)
-  }
+  fs.appendFile("./riddle.txt",newriddle,(error)=>{if (error) throw error})
+
+  
 
   console.log("\n Your riddle has added succesfully ! ")
 
