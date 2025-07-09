@@ -69,7 +69,7 @@ export function toSelectedOption(readli,count,player){
 
 let riddlearray = ALL.Riddle.getRiddleArray()
 
-// a corriger cette fonction pour iterer sur le file.txt
+
 function launchGame(count,player){
     
 
@@ -119,8 +119,27 @@ export function createNewRiddle(){
 
 function updateRiddle(){
     try{
-        let targetid = readline.question(`\nWHAT IS THE ID OF THE RIDDLE THAT YOU WANT UPDATED ? :  `)
-        if(typeof(targetid)==="int" && 1<=targetid<riddlearray)
+        let targetid = parseInt(readline.question(`\nWHAT IS THE ID OF THE RIDDLE THAT YOU WANT UPDATED ? :  `))
+        let index = riddlearray.findIndex(r => r.id === targetid);
+
+        if (!isNaN(targetid) && index !== -1) {
+            let task = readline.question("Enter the new task: ");
+            let answer = readline.question("Enter the new answer: ");
+
+            riddlearray[index].taskDescription = task;
+            riddlearray[index].correctAnswer = answer;
+            const updatedContent = riddlearray.map(r => JSON.stringify(r)).join('\n');
+            fs.writeFileSync('./RIDDLE/riddle.txt', updatedContent);
+
+            console.log(" Riddle updated successfully!");
+
+        }
+        else{
+            console.log(`WRONG ID !`)
+        }
+    }
+    catch(error){
+        console.log("Error !")
     }
 
     }
