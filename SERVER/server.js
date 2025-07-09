@@ -3,7 +3,7 @@ import { rooter } from "./rooter.js";
 
 const PORT = 2626;
 
-function parseBody(req, res, cb){
+function parseBody(req, res, cb){   
     try{        
         req.body = JSON.parse(req.body)        
         }

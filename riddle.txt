@@ -233,3 +233,11 @@
 {"id":55,"taskDescription":3,"correctAnswer":"How much are 4 + 4  ?","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
 {"id":56,"taskDescription":"2+2","correctAnswer":"4","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
 {"id":57,"taskDescription":"2+2","correctAnswer":"4","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":58,"taskDescription":3,"correctAnswer":"How much are 4 + 4  ?","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":58,"taskDescription":2,"correctAnswer":"How much are 4 + 3  ?","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":58,"taskDescription":1,"correctAnswer":"How much are 4 + 2  ?","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":58,"taskDescription":"2+2","correctAnswer":"4","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":59,"taskDescription":2,"correctAnswer":"How much are 4 + 3  ?","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":59,"taskDescription":3,"correctAnswer":"How much are 4 + 4  ?","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":59,"taskDescription":1,"correctAnswer":"How much are 4 + 2  ?","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":59,"taskDescription":"2","correctAnswer":"2","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}

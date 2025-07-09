@@ -38,19 +38,19 @@ export function toSelectedOption(readli,count,player){
         createNewRiddle()
             break
     
-        case 3:
+        case "3":
             readAllRiddles()
             break
     
-        case 4:
+        case "4":
             updateRiddle()
         break 
     
-        case 5:
+        case "5":
             deleteRiddle()
         break
     
-        case 6:
+        case "6":
             viewLeaderboard()
         break
     
@@ -66,12 +66,17 @@ export function toSelectedOption(readli,count,player){
 
 }
 
+
+let riddlearray = ALL.Riddle.getRiddleArray()
+
 // a corriger cette fonction pour iterer sur le file.txt
 function launchGame(count,player){
+    
 
-     for( let i = 0; i<ALL.Riddle.riddlearray.length && count <3  ;i++ ){
+     for( let i = 0; i<riddlearray.length && count <3  ;i++ ){
                 let startime = Date.now()
-                ALL.Riddle.riddlearray[i].Ask(count)
+               let actualriddle =  riddlearray[i]
+               ALL.Riddle.Ask(count,actualriddle)
                 let endtime = Date.now()
                 player.recordTime(startime,endtime)
                 
@@ -89,13 +94,33 @@ function launchGame(count,player){
 
 export function createNewRiddle(){
     console.log(" \n ~~~ ADD YOUR NEW RIDDLE ~~~\n")
-   let task = readline.question(`WRITE HERE THE TASK `)
-    let answer = readline.question(`WRITE HERE THE ANSWER `)
+   let task = readline.question(`WRITE HERE THE TASK: `)
+    let answer = readline.question(`WRITE HERE THE ANSWER: `)
   
   let newriddle = new ALL.Riddle(task,answer)
+  console.log(newriddle)
 
   console.log("\n Your riddle has added succesfully ! ")
 
 
 
 }
+
+
+
+ function readAllRiddles(){
+
+        
+        console.log(`\n ~~~ THE LIST OF ALL RIDDLES ~~~ \n`)
+        console.log(riddlearray)
+    }
+
+
+
+function updateRiddle(){
+    try{
+        let targetid = readline.question(`\nWHAT IS THE ID OF THE RIDDLE THAT YOU WANT UPDATED ? :  `)
+        if(typeof(targetid)==="int" && 1<=targetid<riddlearray)
+    }
+
+    }

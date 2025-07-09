@@ -12,22 +12,30 @@ export default class Riddle {
         
         const line = JSON.stringify(this) + "\n"
 
-  fs.appendFile("./riddle.txt",line,(error)=>{if (error) throw error})
+        fs.appendFile("./RIDDLE/riddle.txt",line,(error)=>{if (error) throw error})
 
     };
 
     
+   static getRiddleArray() {
+    const filePath = './RIDDLE/riddle.txt';
+    
+    const content = fs.readFileSync(filePath, 'utf-8').trim();
+    if (content === '') return [];
+
+    return content.split('\n').map(line => JSON.parse(line));
+}
+
     
     
-    
-    Ask(count){
-        while(this.continuetoask){
+    static Ask(count,riddle){
+        while(riddle.continuetoask){
             
-            let response = readline.question(`\n${this.taskDescription}  :  `)
-            if (response.toLowerCase() == this.correctAnswer){
+            let response = readline.question(`\n${riddle.taskDescription}  :  `)
+            if (response.toLowerCase() == riddle.correctAnswer){
                 console.log(`Yeaah Good response ! `)
                 count += 1                
-                this.continuetoask = false
+                riddle.continuetoask = false
             }
             else {
                 console.log("WRONGGGG ! Try Again ")
@@ -38,16 +46,13 @@ export default class Riddle {
         
     }
 
-    createId(){
-        // creation de liste de ligne ,
-        const lines = fs.readFileSync('./riddle.txt', 'utf-8').trim().split('\n');
+        createId(){
+           const riddlearray = Riddle.getRiddleArray()
 
-        if (lines.length === 0) return null;
+            if(riddlearray.length === 0) return 1
 
-        const lastLine = lines[lines.length - 1];
-
-        return JSON.parse(lastLine).id + 1
-    }
+            return riddlearray[riddlearray.length -1].id + 1
+        }
 
 }
 
