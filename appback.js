@@ -66,7 +66,7 @@ export function toSelectedOption(readli,count,player){
 
 }
 
-
+// a corriger cette fonction pour iterer sur le file.txt
 function launchGame(count,player){
 
      for( let i = 0; i<ALL.Riddle.riddlearray.length && count <3  ;i++ ){
@@ -91,14 +91,8 @@ export function createNewRiddle(){
     console.log(" \n ~~~ ADD YOUR NEW RIDDLE ~~~\n")
    let task = readline.question(`WRITE HERE THE TASK `)
     let answer = readline.question(`WRITE HERE THE ANSWER `)
-
-  let lastid = ALL.Riddle.riddlearray.slice(-1)[0].id;
-  let id = lastid +1; 
-  let newriddle = new ALL.Riddle(id,task,answer)
-
-  fs.appendFile("./riddle.txt",newriddle,(error)=>{if (error) throw error})
-
   
+  let newriddle = new ALL.Riddle(task,answer)
 
   console.log("\n Your riddle has added succesfully ! ")
 

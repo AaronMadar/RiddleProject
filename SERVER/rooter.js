@@ -1,8 +1,11 @@
 import Riddle from "../RIDDLE/Riddle.js";
+import * as ALL  from "../MANAGER/allimports.js" 
 
 function createariddle(req, res) {
+    
     const task = req.body.task;
     const answer = req.body.answer;
+    
 
     const newriddle = new Riddle(task, answer);
 

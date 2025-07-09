@@ -3,20 +3,22 @@ import fs from "fs"
 
 
 export default class Riddle {    
-    constructor(id,taskDescription,correctAnswer ){
-        this.id = id 
+    constructor(taskDescription,correctAnswer ){
+        this.id = this.createId()
         this.taskDescription = taskDescription
         this.correctAnswer = correctAnswer
         this.timeToAnswer ={begin:0, end:0}
         this.continuetoask = true
-        Riddle.riddlearray.push(this)
-        fs.appendFile("RIDDLE/riddle.txt", JSON.stringify(this) + "\n", (err) => {
-    if (err) throw err;
-});
+        
+        const line = JSON.stringify(this) + "\n"
 
-    }
+  fs.appendFile("./riddle.txt",line,(error)=>{if (error) throw error})
+
+    };
+
     
-    static riddlearray = []
+    
+    
     
     Ask(count){
         while(this.continuetoask){
@@ -35,7 +37,22 @@ export default class Riddle {
 
         
     }
+
+    createId(){
+        // creation de liste de ligne ,
+        const lines = fs.readFileSync('./riddle.txt', 'utf-8').trim().split('\n');
+
+        if (lines.length === 0) return null;
+
+        const lastLine = lines[lines.length - 1];
+
+        return JSON.parse(lastLine).id + 1
+    }
+
 }
+
+
+
 
 
 
