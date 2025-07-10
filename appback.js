@@ -67,7 +67,7 @@ export function toSelectedOption(readli,count,player){
 }
 
 
-let riddlearray = ALL.Riddle.getRiddleArray()
+export let riddlearray = ALL.Riddle.getRiddleArray()
 
 
 function launchGame(count,player){
@@ -139,7 +139,7 @@ function updateRiddle(){
         }
     }
     catch(error){
-        console.log("Error !")
+        console.log(`Error ! ${error}`)
     }
 
     }
