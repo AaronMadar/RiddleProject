@@ -1,64 +1,38 @@
-import {createServer} from "node:http"
-import { rooter } from "./rooter.js";
+import express from "express"
+import * as ALL from "../MANAGER/allimports.js"
 
-const PORT = 2626;
+const server = express()
+const PORT = 3000
 
-function parseBody(req, res, cb){   
-    try{        
-        req.body = JSON.parse(req.body)        
-        }
+server.use(express.json())
 
-    catch(e){
-        req.body = {}
-        }
+server.post('/riddle',(req,res)=>{
 
-
-         if (typeof cb !== 'function') {
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        return res.end("ONLY GET OR POST /riddle ARE AVAILABLE");
+    if(!req.body?.task || !req.body?.answer){
+        
+        res.send(`All Post Method must contains task and answer keys !!`)
     }
 
-        try{
-
-            cb(req, res);
-
-        }
-        catch(e){
-            res.end(`ONLY GET OR POST /riddle ARE AVAILABLE`)
-        }
-
+    const {task,answer} = req.body
+    
+    
+try{
+        let newriddle = new ALL.Riddle(task,answer)      
+        res.send("\n Your riddle has added succesfully ! ")
+}catch(e){
+    
+    res.send(`banana`);
+    res.send(`All Post Method must contains task and answer keys !!`)
+    
 }
+    
+
+})
 
 
-
-
-const server = createServer((req,res)=>{
-
-    const method = req.method;
-    const url = req.url;
-
-    console.log(req.method , req.url)
-    let body = "";
-
-    req.on("data",chunk =>{
-        body += chunk.toString();
-
-    })
-
-    req.on("end",()=>{
-        req.body = body ;
-        const handler = rooter[req.method]?.[req.url];
-        console.log("Handler trouvé ?", handler)
-        parseBody(req,res,handler)
-    })
-   
-
-
-
-});
 
 
 server.listen(PORT,()=>{
-    console.log(`Listning ... on PORT :${PORT}`);
+    console.log(`Listening... ON PORT:${PORT}`);
     
 })

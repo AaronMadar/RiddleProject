@@ -1,12 +1,12 @@
 {
   "dependencies": {
+    "express": "^5.1.0",
     "readline-sync": "^1.4.10"
   },
   "name": "riddleproject",
   "version": "1.0.0",
   "main": "app.js",
   "type": "module",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

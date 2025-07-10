@@ -98,7 +98,7 @@ export function createNewRiddle(){
     let answer = readline.question(`WRITE HERE THE ANSWER: `)
   
   let newriddle = new ALL.Riddle(task,answer)
-  console.log(newriddle)
+  
 
   console.log("\n Your riddle has added succesfully ! ")
 
@@ -143,3 +143,18 @@ function updateRiddle(){
     }
 
     }
+
+
+function deleteRiddle(){
+    
+    let targetid = parseInt(readline.question(`\nWHAT IS THE ID OF THE RIDDLE THAT YOU WANT DELETED ? :  `))
+    let index = riddlearray.findIndex(r => r.id === targetid);
+    riddlearray.splice(index,1)
+    const updatedContent = riddlearray.map(r => JSON.stringify(r)).join('\n');
+    fs.writeFileSync('./RIDDLE/riddle.txt', updatedContent);
+
+    console.log(" Riddle deleted successfully!");
+
+
+
+}

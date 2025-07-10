@@ -6,7 +6,7 @@ function App() {
     console.log("Welcome to the Riddle Challenge!\nThis app is designed to assess your mental performance and test your quick thinking. Enjoy!");
     const playername = readline.question(`What's your name ? : `)
     let p1 = new ALL.Player(playername)     
-    // ALL.crudMenu();
+    
     let didntchoose = true ; 
     ALL.crudMenu()
     while(didntchoose){

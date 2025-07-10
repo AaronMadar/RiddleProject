@@ -1,3 +1,5 @@
 {"id":1,"taskDescription":"2+2","correctAnswer":"4","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
-{"id":2,"taskDescription":"2+1","correctAnswer":"3","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
 {"id":3,"taskDescription":"2+6","correctAnswer":"8","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":4,"taskDescription":"1+!","correctAnswer":"2","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":5,"taskDescription":"1+1","correctAnswer":"2","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}
+{"id":6,"taskDescription":"1+1","correctAnswer":"2","timeToAnswer":{"begin":0,"end":0},"continuetoask":true}

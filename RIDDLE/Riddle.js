@@ -10,7 +10,8 @@ export default class Riddle {
         this.timeToAnswer ={begin:0, end:0}
         this.continuetoask = true
         
-        const line = JSON.stringify(this) + "\n"
+       const line =  '\n' + JSON.stringify(this) ;
+
 
         fs.appendFile("./RIDDLE/riddle.txt",line,(error)=>{if (error) throw error})
 
@@ -23,7 +24,8 @@ export default class Riddle {
     const content = fs.readFileSync(filePath, 'utf-8').trim();
     if (content === '') return [];
 
-    return content.split('\n').map(line => JSON.parse(line));
+    return content.split('\n').filter(line => line.trim() !== '').map(line => JSON.parse(line));
+
 }
 
     
