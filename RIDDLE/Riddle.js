@@ -56,7 +56,12 @@ export default class Riddle {
             return riddlearray[riddlearray.length -1].id + 1
         }
 
+
+
+    
 }
+
+
 
 
 
