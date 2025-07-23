@@ -3,10 +3,11 @@ import fs from "fs"
 
 
 export default class Riddle {    
-    constructor(taskDescription,correctAnswer ){
+    constructor(taskDescription,correctAnswer,level ){
         this.id = this.createId()
         this.taskDescription = taskDescription
         this.correctAnswer = correctAnswer
+        this.level = level
         this.timeToAnswer ={begin:0, end:0}
         this.continuetoask = true
         
@@ -18,15 +19,15 @@ export default class Riddle {
     };
 
     
-   static getRiddleArray() {
-    const filePath = './RIDDLE/riddle.txt';
+//    static async getRiddleArray() {
+//     const filePath = '../RIDDLE/riddle.txt';
     
-    const content = fs.readFileSync(filePath, 'utf-8').trim();
-    if (content === '') return [];
+//     const content = fs.readFileSync(filePath, 'utf-8').trim();
+//     if (content === '') return [];
 
-    return content.split('\n').filter(line => line.trim() !== '').map(line => JSON.parse(line));
+//     return content.split('\n').filter(line => line.trim() !== '').map(line => JSON.parse(line));
 
-}
+// }
 
     
     
