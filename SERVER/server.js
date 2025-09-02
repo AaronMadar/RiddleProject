@@ -7,7 +7,7 @@ dotenv.config();
 
 // Création du serveur
 const server = express();
-const PORT = 3000;
+const PORT = 3000;    
 server.use(express.json());
 server.use((req, res, next) => {
   console.log(req.body, req.url, 'th');
